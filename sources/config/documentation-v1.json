@@ -1,0 +1,879 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "",
+            "description": "production"
+        }
+    ],
+    "info": {
+        "description": "Documentation API CFS3",
+        "version": "1.0.0",
+        "title": "Documentation API CFS3",
+        "contact": {
+            "email": "thuyanh1x2@gmail.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "Category"
+        },
+        {
+            "name": "Document"
+        },
+        {
+            "name": "User"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Get list category",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "recursive",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "example": [{
+                                        "id": "1",
+                                        "title": "vật lý",
+                                        "active": "1",
+                                        "created_at": "2023-09-07 23:35:22",
+                                        "updated_at": "2023-09-07 18:39:22",
+                                        "parent_id": "0",
+                                        "level": 0,
+                                        "childrens": []
+                                    }]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/category/{categoryId}": {
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Find category by ID",
+                "description": "Returns a single category",
+                "operationId": "getCategoryById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "description": "ID of category to return",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "recursive",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "id": "1",
+                                        "title": "vật lý",
+                                        "active": "1",
+                                        "created_at": "2023-09-07 23:35:22",
+                                        "updated_at": "2023-09-07 18:39:22",
+                                        "parent_id": "0",
+                                        "level": 0,
+                                        "childrens": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Category not found"
+                    }
+                }
+            }
+        },
+        "/document/upload": {
+            "post": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "User uploads a file",
+                "description": "",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/upload"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "example": [
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [{
+                    "bearer": []
+                }]
+            }
+        },
+        "/documents": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "Get list documents",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "example": [{
+                                        "id": "6",
+                                        "category_id": "11",
+                                        "file_id": "11",
+                                        "user_id": "1",
+                                        "is_admin_upload": "1",
+                                        "active": "0",
+                                        "name": "111",
+                                        "description": "111",
+                                        "created_at": "2023-09-09 14:30:57",
+                                        "updated_at": "2023-09-09 14:30:57"
+                                    }]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/document/{documentId}": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "Lấy thông tin tài liệu trên CSDL",
+                "description": "Lấy thông tin tài liệu trên CSDL",
+                "operationId": "index",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "documentId",
+                    "in": "path",
+                    "description": "ID tài liệu",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "id": "7",
+                                        "category_id": "13",
+                                        "file_id": "12",
+                                        "user_id": "1",
+                                        "is_admin_upload": "1",
+                                        "active": "0",
+                                        "name": "Road to 1 củ",
+                                        "description": "adsfadsfads",
+                                        "created_at": "2023-09-13 08:50:58",
+                                        "updated_at": "2023-09-13 08:50:58"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                }
+            }
+        },
+        "/document/listByCategoryId/{categoryId}": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "List document by category id",
+                "description": "Returns a list document",
+                "operationId": "getDocumentByCategoryId",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "categoryId",
+                    "in": "path",
+                    "description": "ID of category to return",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": [{
+                                        "category_title": "Toán",
+                                        "category_parent_title": "Lớp 10",
+                                        "id": "7",
+                                        "category_id": "13",
+                                        "file_id": "12",
+                                        "user_id": "1",
+                                        "is_admin_upload": "1",
+                                        "active": "0",
+                                        "name": "Road to 1 củ",
+                                        "description": "adsfadsfads",
+                                        "created_at": "2023-09-13 08:50:58",
+                                        "updated_at": "2023-09-13 08:50:58"
+                                    }]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                }
+            }
+        },
+        "/document/generateLinkDownload/{documentId}": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "Lấy link download tài liệu dựa trên document_id + tăng lượt tải",
+                "description": "",
+                "operationId": "generateLinkDownload",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "documentId",
+                    "in": "path",
+                    "description": "ID of document",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "link":"http:\/\/http://tailieu.thpthahoacfs3.click/\/public\/storage\/temp\/1f249b111e243fa4e58cdea885f4c198.pdf"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                }
+            }
+        },
+        "/document/myUploadFiles/": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "List document upload by user ",
+                "description": "Returns a list document",
+                "operationId": "getDocumentByUserID",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": [{
+                                        "category_title": "Toán",
+                                        "category_parent_title": "Lớp 10",
+                                        "id": "7",
+                                        "category_id": "13",
+                                        "file_id": "12",
+                                        "user_id": "1",
+                                        "is_admin_upload": "1",
+                                        "active": "0",
+                                        "name": "Road to 1 củ",
+                                        "description": "adsfadsfads",
+                                        "created_at": "2023-09-13 08:50:58",
+                                        "updated_at": "2023-09-13 08:50:58"
+                                    }]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                },
+                "security": [{
+                    "bearer": []
+                }]
+            }
+        },
+
+        "/document/mostDownloadedDocuments": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "Lấy 10 tài liệu nhiều lượt tải nhất",
+                "description": "Returns 10 docs",
+                "operationId": "mostDownloadedDocuments",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": 
+                                        {}
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                }
+            }
+        },
+
+        "/document/mostViewedDocuments": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "Lấy 10 tài liệu nhiều lượt xem nhất",
+                "description": "Returns 10 docs",
+                "operationId": "mostDownloadedDocuments",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": 
+                                        {}
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                }
+            }
+        },
+        "/document/recentlyAddedDocuments": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "Lấy 10 tài liệu mới thêm gần đây",
+                "description": "Returns 10 docs",
+                "operationId": "recentlyAddedDocuments",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": 
+                                        {}
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                }
+            }
+        },
+        
+        "/document/search?k={k}": {
+            "get": {
+                "tags": [
+                    "Document"
+                ],
+                "summary": "Tìm kiếm tài liệu",
+                "description": "Returns 10 docs",
+                "operationId": "search",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "k",
+                    "in": "path",
+                    "description": "keyword to search",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }],
+
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": 
+                                        {
+                                            
+
+                                        }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Document not found"
+                    }
+                }
+            }
+        },
+
+        "/user/authorize": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Authorize user",
+                "description": "",
+                "operationId": "authorizeUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/authorize"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Login sucesss!",
+                                        "data": {
+                                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0YWlsaWV1LnRocHRoYWhvYWNmczMuY2xpY2siLCJpYXQiOjE2OTQ2MTg2OTEsIm5iZiI6MTY5NDYxODY5MSwiZXhwIjoxNjk0NjIyMjkxLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwidXNlcl9pZCI6IjQifQ.Ueozwgd6Krlmy5w_OjYjrSrlGHYEekjjp_dDdF4utqQ"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/user/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Register user",
+                "description": "",
+                "operationId": "registerUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/registerUser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Register success!",
+                                        "data": {
+                                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0YWlsaWV1LnRocHRoYWhvYWNmczMuY2xpY2siLCJpYXQiOjE2OTQ2MTg4NjAsIm5iZiI6MTY5NDYxODg2MCwiZXhwIjoxNjk0NjIyNDYwLCJlbWFpbCI6InVzZXIxQGdtYWlsLmNvbSIsInVzZXJfaWQiOjV9.0NiQOocZPsm3JrFS8leq_iYivFWO398Y4IncksiVIZ4"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/user/refreshToken": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Refresh access token",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "refreshToken",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Refresh token sucesss!",
+                                        "data": {
+                                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0YWlsaWV1LnRocHRoYWhvYWNmczMuY2xpY2siLCJpYXQiOjE2OTQ2MTg2OTEsIm5iZiI6MTY5NDYxODY5MSwiZXhwIjoxNjk0NjIyMjkxLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwidXNlcl9pZCI6IjQifQ.Ueozwgd6Krlmy5w_OjYjrSrlGHYEekjjp_dDdF4utqQ"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [{
+                    "bearer": []
+                }]
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get user data",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "getUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "id": "1",
+                                        "name": "user",
+                                        "email": "user@gmail.com",
+                                        "class_name": "10",
+                                        "phone": "0123456789",
+                                        "created_at": "2023-09-13 01:10:49",
+                                        "updated_at": "2023-09-13 01:10:49"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [{
+                    "bearer": []
+                }]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update user data",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updateUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateUser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "example": {
+                                        "id": "1",
+                                        "name": "user",
+                                        "email": "user@gmail.com",
+                                        "class_name": "10",
+                                        "phone": "0123456789",
+                                        "created_at": "2023-09-13 01:10:49",
+                                        "updated_at": "2023-09-13 01:10:49"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [{
+                    "bearer": []
+                }]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "type": "http"
+            }
+        },
+        "schemas": {
+            "authorize": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            },
+            "updateUser": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "class_name": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            },
+            "registerUser": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "class_name": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "email",
+                    "password"
+                ]
+            },
+            "upload": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "category_id": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "file": {
+                        "type": "file"
+                    }
+                },
+                "required": [
+                    "email",
+                    "password"
+                ]
+            }
+        }
+    }
+}

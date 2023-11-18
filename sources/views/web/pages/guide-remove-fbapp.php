@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn xóa dữ liệu CFS3Doc</title>
+</head>
+<body>
+    <center>
+
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:15.0pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;text-align:center;line-height:normal;background:#F9F9F9;'><strong><span style="font-size:32px;font-family:Roboto;color:black;">URL hướng dẫn x&oacute;a dữ liệu.</span></strong></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;">CFS3Doc l&agrave; một ứng dụng gi&aacute;o dục v&agrave; ch&uacute;ng t&ocirc;i kh&ocirc;ng lưu dữ liệu c&aacute; nh&acirc;n của bạn trong m&aacute;y chủ của ch&uacute;ng t&ocirc;i. Theo ch&iacute;nh s&aacute;ch của Facebook, ch&uacute;ng t&ocirc;i phải cung cấp URL gọi lại x&oacute;a dữ liệu người d&ugrave;ng hoặc URL hướng dẫn x&oacute;a dữ liệu.</span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;">Nếu bạn muốn x&oacute;a c&aacute;c hoạt động của m&igrave;nh đối với CFS3Doc, bạn c&oacute; thể x&oacute;a th&ocirc;ng tin của m&igrave;nh bằng c&aacute;ch l&agrave;m theo c&aacute;c bước sau:</span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;">1. Đi tới C&agrave;i đặt &amp; Quyền ri&ecirc;ng tư của T&agrave;i khoản Facebook của bạn. Nhấp v&agrave;o &ldquo;C&agrave;i đặt&rdquo;</span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;">2. T&igrave;m kiếm &ldquo;Ứng dụng v&agrave; trang web&rdquo; v&agrave; bạn sẽ thấy tất cả c&aacute;c ứng dụng v&agrave; trang web m&agrave; bạn đ&atilde; li&ecirc;n kết với Facebook của m&igrave;nh.</span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;"><img width="819" height="461" src="https://cdn.riki.edu.vn/pc/images/tutor/tutor-1.jpg" alt="https://cdn.riki.edu.vn/pc/images/tutor/tutor-1.jpg"></span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;">3. T&igrave;m kiếm tới &ldquo;CFS3Doc&rdquo; trong danh s&aacute;ch v&agrave; nhấp v&agrave;o &ldquo;Gỡ&rdquo;</span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;"><img width="803" height="452" src="https://cdn.riki.edu.vn/pc/images/tutor/tutor-2.jpg" alt="https://cdn.riki.edu.vn/pc/images/tutor/tutor-2.jpg"></span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;">4. Tuỳ chọn v&agrave; nhấp v&agrave;o &ldquo;X&oacute;a, gỡ bỏ&ldquo;.</span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;"><img width="802" height="451" src="https://cdn.riki.edu.vn/pc/images/tutor/tutor-3.jpg" alt="https://cdn.riki.edu.vn/pc/images/tutor/tutor-3.jpg"></span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:7.5pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;line-height:normal;background:#F9F9F9;'><span style="font-size:18px;font-family:Roboto;color:black;">5. Xin ch&uacute;c mừng, bạn đ&atilde; x&oacute;a th&agrave;nh c&ocirc;ng c&aacute;c hoạt động ứng dụng của m&igrave;nh.</span></p>
+        <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;font-size:14.0pt;font-family:"Times New Roman",serif;'>&nbsp;</p>
+    </center>
+</body>
+</html>

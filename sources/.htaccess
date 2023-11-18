@@ -1,0 +1,76 @@
+#Don't modify anything here
+php_flag display_errors on
+
+
+# PHP error handling for development servers
+# enable production
+#php_flag display_startup_errors off
+#php_flag display_errors off
+#php_flag html_errors off
+#php_flag log_errors on
+#php_flag ignore_repeated_errors off
+#php_flag ignore_repeated_source off
+#php_flag report_memleaks on
+#php_flag track_errors on
+#php_value docref_root 0
+#php_value docref_ext 0
+#php_value error_log /home/path/public_html/domain/PHP_errors.log
+#php_value error_reporting -1
+#php_value log_errors_max_len 0
+
+
+
+RewriteEngine on
+
+RewriteRule ^public - [L]
+
+RewriteRule ^admin/([^/]+)/([^/]+)/([1-9][0-9]*)$ index.php?controller=$1&action=$2&id=$3&module=admin [L,QSA]
+
+RewriteRule ^admin/([^/]+)/([^/]+)$ index.php?controller=$1&action=$2&module=admin [L,QSA]
+
+RewriteRule ^admin/([^/]+)$ index.php?controller=$1&action=index&module=admin [L,QSA]
+
+RewriteRule ^admin$ index.php?controller=auth&action=login&module=admin [L,QSA]
+
+
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# document
+RewriteRule ^api/documentation$ index.php?controller=web&action=documentation&module=web [QSA,L]
+RewriteRule ^api/documentation/([0-9a-zA-Z_-]*).json$ index.php?controller=web&action=versionDocumentation&version=$1&module=web [QSA,L]
+
+RewriteRule ^api/categories$ index.php?controller=category&action=list&&module=web [L,QSA]
+
+RewriteRule ^api/documents$ index.php?controller=document&action=list&&module=web [L,QSA]
+
+RewriteRule ^api/$ index.php?controller=document&action=list&&module=web [L,QSA]
+
+RewriteRule ^api/([0-9a-zA-Z_-]*)s$ index.php?controller=$1&action=list&&module=web [L,QSA]
+
+
+# api/controller/id
+# method GET: detail
+# method PUT: update
+# method DELETE: delete
+RewriteRule ^api/([^/]+)/([0-9]*)$ index.php?controller=$1&action=index&id=$2&module=web [QSA,L]
+
+# api/controller/function
+RewriteRule ^api/([^/]+)/([0-9a-zA-Z_-]*)$ index.php?controller=$1&action=$2&module=web [L,QSA]
+
+
+# api/controller/function/id
+RewriteRule ^api/([^/]+)/([^/]+)/([0-9a-zA-Z_-]*)$ index.php?controller=$1&action=$2&id=$3&module=web [L,QSA]
+
+# api/controller
+# method POST: create
+RewriteRule ^api/([^/]+)$ index.php?controller=$1&action=index&module=web [QSA,L]
+
+# index frontend
+RewriteRule ^$ index.php?controller=web&action=index&module=web [L]
+
+RewriteRule ^policy$ index.php?controller=web&action=policy&module=web [QSA,L]
+
+RewriteRule ^([^/]+)$ index.php?controller=web&action=$1&module=web [QSA,L]
+
+RewriteRule ^guide-remove-fbapp$ index.php?controller=web&action=removeFBapp&module=web [QSA,L]
+

@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.2-apache
 
 COPY my-apache2.conf /etc/apache2/apach2.conf
 RUN a2enmod rewrite
